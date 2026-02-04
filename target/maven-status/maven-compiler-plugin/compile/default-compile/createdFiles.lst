@@ -1,9 +1,0 @@
-com\hospital\ckd\ml\Layer.class
-com\hospital\ckd\ui\MainApp.class
-com\hospital\ckd\model\PredictionResult.class
-com\hospital\ckd\service\PredictionService.class
-com\hospital\ckd\ml\ActivationFunction.class
-com\hospital\ckd\data\Preprocessor.class
-com\hospital\ckd\ui\PatientFormController.class
-com\hospital\ckd\ml\NeuralNetwork.class
-com\hospital\ckd\model\PatientData.class
