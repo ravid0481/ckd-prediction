@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.ckd.ui.PatientFormController">
+   <children>
+      <!-- Header -->
+      <HBox alignment="CENTER" style="-fx-background-color: #2E86AB; -fx-padding: 15;">
+         <children>
+            <Label text="Hospital CKD Risk Prediction System" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <!-- Main Content -->
+      <HBox spacing="20.0">
+         <children>
+            <!-- Input Form -->
+            <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-padding: 20;">
+               <children>
+                  <Label text="Patient Medical Information">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+
+                  <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Age (years):" />
+                        <TextField fx:id="ageField" promptText="e.g., 45" GridPane.columnIndex="1" />
+                        
+                        <Label text="Blood Pressure:" GridPane.rowIndex="1" />
+                        <TextField fx:id="bloodPressureField" promptText="e.g., 120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Blood Glucose:" GridPane.rowIndex="2" />
+                        <TextField fx:id="bloodGlucoseField" promptText="e.g., 100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        
+                        <Label text="Serum Creatinine:" GridPane.rowIndex="3" />
+                        <TextField fx:id="serumCreatinineField" promptText="e.g., 1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        
+                        <Label text="Hemoglobin:" GridPane.rowIndex="4" />
+                        <TextField fx:id="hemoglobinField" promptText="e.g., 14.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        
+                        <Label text="Albumin:" GridPane.rowIndex="5" />
+                        <TextField fx:id="albuminField" promptText="e.g., 4.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        
+                        <Label text="Sugar:" GridPane.rowIndex="6" />
+                        <TextField fx:id="sugarField" promptText="0-5" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        
+                        <Label text="Sodium:" GridPane.rowIndex="7" />
+                        <TextField fx:id="sodiumField" promptText="e.g., 140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        
+                        <Label text="Potassium:" GridPane.rowIndex="8" />
+                        <TextField fx:id="potassiumField" promptText="e.g., 4.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        
+                        <Label text="Packed Cell Volume:" GridPane.rowIndex="9" />
+                        <TextField fx:id="packedCellVolumeField" promptText="e.g., 40" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                     </children>
+                  </GridPane>
+
+                  <!-- Action Buttons -->
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button fx:id="analyzeButton" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold;" text="Analyze CKD Risk">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button onAction="#clearForm" style="-fx-background-color: #6c757d; -fx-text-fill: white;" text="Clear Form" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <!-- Results Panel -->
+            <VBox spacing="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #dee2e6; -fx-padding: 20;">
+               <children>
+                  <Label text="Analysis Results">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+
+                  <!-- Risk Display -->
+                  <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-border-radius: 5;">
+                     <children>
+                        <Label text="CKD Risk Level">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="riskPercentageLabel" text="--">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="riskCategoryLabel" text="--">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+
+                  <!-- Precautions -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Recommended Precautions:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="precautionsArea" editable="false" prefHeight="200.0" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+
+      <!-- Status Bar -->
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #e9ecef; -fx-padding: 10;">
+         <children>
+            <Label fx:id="statusLabel" text="Ready" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
